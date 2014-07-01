@@ -1,0 +1,42 @@
+body {
+    background: #83808c;
+}
+a {
+    color: #fff;
+}
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    resize: vertical;
+    width: 99%;
+    height: 50%;
+}
+
+.button:hover {
+    background: #53a7ea;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.button {
+    position: relative;
+    margin: auto;
+    width: 300px;
+    height: 200px;
+    background: #676470;
+    color: #fff;
+    font-weight: 900;
+    font-size: 3.4em;
+    text-align: center;
+    line-height: 200px;
+    transition: all 0.3s ease;
+}
+.buttonHolder{
+    text-align: center;
+}
+h1 {
+    color: #fff;
+    text-align: center;
+}
