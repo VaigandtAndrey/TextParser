@@ -10,18 +10,19 @@ import java.io.IOException;
 
 public class ParseServlet extends HttpServlet {
 
-    //TODO !!!!!!!!!!!!!!!!!!! <
-
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       // super.service(req, resp);
+        // super.service(req, resp);
         response.addHeader("author", "alexey.slepenkov@gmail.com");
-        String text = request.getParameter("textarea");
-        Parser textParser=new Parser(text);
-        String[] sentences = textParser.parseSentences();
+        request.setCharacterEncoding("UTF-8");
 
-        request.setAttribute("text", textParser.getSubmittedText());
-        request.setAttribute("sentences", sentences);
+        String text = request.getParameter("textarea");
+        request.setAttribute("text", Parser.parseText(text));
+        request.setAttribute("paragraph", Parser.parseParagraphs(text));
+        request.setAttribute("sentence", Parser.parseSentences(text));
+        request.setAttribute("word", Parser.parseWords(text));
+        request.setAttribute("letter", Parser.parseLetters(text));//
+
         request.getRequestDispatcher("/WEB-INF/output.jsp").forward(request, response);
     }
 }

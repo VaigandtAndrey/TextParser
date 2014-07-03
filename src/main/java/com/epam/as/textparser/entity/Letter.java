@@ -1,10 +1,10 @@
 package com.epam.as.textparser.entity;
 
-public class Symbol {
+public class Letter {
     private char symbol;
 
-    public Symbol(String line) {
-        symbol = line.toCharArray()[0];
+    public Letter(String line) {
+        symbol = line.equals("") ? ' ' : line.toCharArray()[0];
     }
 
     @Override

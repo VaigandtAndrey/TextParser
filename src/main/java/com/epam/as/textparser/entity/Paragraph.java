@@ -1,37 +1,26 @@
 package com.epam.as.textparser.entity;
 
+import com.epam.as.textparser.util.Parser;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Paragraph {
-    private List<Sentence> sentences;
-    private String submittedParagraph;
+    String stringParagraph;
+    List<Sentence> sentences;
 
-    public Paragraph(List<Sentence> sentences) {
-        this.sentences = sentences;
-    }
-
-    public Paragraph(String string) {
-        this.submittedParagraph = string;
-    }
-
-    public Paragraph() {
-        List<Sentence> paragraphs = new ArrayList<>();
-    }
-
-    public void addSentence(Sentence addsent) {
-        this.sentences.add(addsent);
+    public Paragraph(String stringParagraph) {
+        sentences = new ArrayList<>();
+        this.stringParagraph = stringParagraph;
+        sentences.addAll(Parser.parseSentences(stringParagraph));
     }
 
     @Override
     public String toString() {
-        return "Paragraph{" +
-                "sentences=" + sentences +
-                '}';
+        return stringParagraph;
+    }
+
+    public void addSentence(Sentence sentence) {
+        sentences.add(sentence);
     }
 }
-
-
-
-
-

@@ -1,9 +1,9 @@
 package com.epam.as.textparser.entity;
 
-public class Symbol {
+public class Number {
     private char symbol;
 
-    public Symbol(String line) {
+    public Number(String line) {
         symbol = line.toCharArray()[0];
     }
 
