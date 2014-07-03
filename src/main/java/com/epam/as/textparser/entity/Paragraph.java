@@ -17,7 +17,7 @@ public class Paragraph {
 
     @Override
     public String toString() {
-        return stringParagraph;
+        return sentences.toString();
     }
 
     public void addSentence(Sentence sentence) {

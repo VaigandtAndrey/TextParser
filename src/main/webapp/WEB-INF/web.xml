@@ -13,7 +13,7 @@
 
     <servlet>
         <servlet-name>ParseServlet</servlet-name>
-        <servlet-class>com.epam.as.textparser.servlet.ParseServlet</servlet-class>
+        <servlet-class>com.epam.as.textparser.servlet.Controller</servlet-class>
     </servlet>
 
     <servlet-mapping>

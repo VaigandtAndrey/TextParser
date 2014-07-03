@@ -17,7 +17,7 @@ public class Text {
 
     @Override
     public String toString() {
-        return stringText;
+        return paragraphs.toString();
     }
 
     public void addParagraph(Paragraph paragraph) {
