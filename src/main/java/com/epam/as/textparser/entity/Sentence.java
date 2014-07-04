@@ -17,7 +17,7 @@ public class Sentence {
 
     @Override
     public String toString() {
-        return stringSentence;
+        return words.toString();
     }
 
     public void addSentence(Word word) {
