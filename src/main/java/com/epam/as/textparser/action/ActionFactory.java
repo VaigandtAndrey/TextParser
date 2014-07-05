@@ -9,6 +9,9 @@ public class ActionFactory {
 
     static {
         actions.put("parse", new ParseAction());
+        actions.put("action0", new Action0());
+        actions.put("action1", new Action1());
+        actions.put("action2", new Action2());
     }
 
     public static Action getAction(String actionName) {

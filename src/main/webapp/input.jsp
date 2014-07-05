@@ -19,6 +19,10 @@
 </div>
     <div id="right">
         <input type="radio" name="action" value="parse" checked> parse!<br>
+        <input type="radio" name="action" value="action0" > action0<br>
+        <input type="radio" name="action" value="action1" > action1<br>
+        <input type="radio" name="action" value="action2" > action2<br>
+
     </div>
 </body>
 </html>
