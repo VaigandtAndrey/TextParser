@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Text {
-    String stringText;
+
     List<Paragraph> paragraphs;
 
     public Text(String stringText) {
@@ -18,6 +18,11 @@ public class Text {
     @Override
     public String toString() {
         return paragraphs.toString();
+    }
+
+
+    public static Text fromString(String sourceText)    {
+        return Parser.parseText(sourceText);
     }
 
     public void addParagraph(Paragraph paragraph) {

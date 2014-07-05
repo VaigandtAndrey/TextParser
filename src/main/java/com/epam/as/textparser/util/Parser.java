@@ -1,19 +1,16 @@
 package com.epam.as.textparser.util;
 
-import com.epam.as.textparser.entity.*;
-import com.epam.as.textparser.entity.Number;
+import com.epam.as.textparser.entity.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Parser {
     private final static Logger log = LoggerFactory.getLogger(Parser.class);
 
+    public static Text parseText(String sourceText) {
+        return null;
+    }
+/*
     public static Text parseText(String submittedText) {
         String textStr = clean(submittedText);
         Text text = new Text(textStr);
@@ -99,6 +96,6 @@ public class Parser {
         textStr = textStr.replaceAll("<|>", " ");
         return textStr;
     }
-
+*/
 
 }
