@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="Cp1251" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:bundle basename="i18n.messages">
@@ -7,8 +7,12 @@
     <meta charset="UTF-8">
     <title><fmt:message key="title"/></title>
     <link rel="stylesheet" href="style/style.css" type="text/css">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <div id="top"><h1><fmt:message key="head"/></h1></div>
 <p></p>
 <div id="left">
@@ -22,7 +26,6 @@
         <input type="radio" name="action" value="action0" > action0<br>
         <input type="radio" name="action" value="action1" > action1<br>
         <input type="radio" name="action" value="action2" > action2<br>
-
     </div>
 </body>
 </html>

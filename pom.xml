@@ -17,6 +17,7 @@
         <maven.complier.target>1.8</maven.complier.target>
         <slf4j.version>1.7.7</slf4j.version>
         <jstl.version>1.2</jstl.version>
+        <bootstrap.version>2.0.4</bootstrap.version>
     </properties>
 
     <dependencies>
@@ -51,6 +52,12 @@
             <artifactId>javax.servlet.jsp-api</artifactId>
             <version>${jsp-api.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.efsavage.twitter.bootstrap</groupId>
+            <artifactId>bootstrap-maven</artifactId>
+            <version>${bootstrap.version}</version>
         </dependency>
 
     </dependencies>

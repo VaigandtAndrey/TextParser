@@ -1,6 +1,6 @@
 package com.epam.as.textparser.entity;
 
-public class Symbol {
+public class Symbol implements TextPart {
     private char symbol;
 
     @Override

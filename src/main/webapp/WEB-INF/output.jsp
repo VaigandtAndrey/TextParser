@@ -5,9 +5,12 @@
 <html>
 <head lang="en">
     <title><fmt:message key="title"/></title>
-    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <%--<link rel="stylesheet" href="style/style.css" type="text/css">--%>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <h1><fmt:message key="head"/></h1>
 
 <h2><fmt:message key="output.text.submitted"/></h2>

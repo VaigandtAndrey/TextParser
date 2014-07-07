@@ -1,5 +1,6 @@
 package com.epam.as.textparser.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractCompoundText<T> implements CompoundText{
@@ -8,6 +9,15 @@ public class AbstractCompoundText<T> implements CompoundText{
     @Override
     public TextPart getElement(int index) {
         return null;
+    }
+
+    public AbstractCompoundText() {
+        components = new ArrayList<T>();
+    }
+
+    @Override
+    public String toString() {
+        return components.toString();
     }
 }
 

@@ -14,8 +14,7 @@ public class Controller extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // super.service(req, resp);
-        response.addHeader("author", "alexey.slepenkov@gmail.com");//FILTER
-        request.setCharacterEncoding("UTF-8");//FILTER
+
 
         String actionName = request.getParameter("action");
         Action action = ActionFactory.getAction(actionName);
