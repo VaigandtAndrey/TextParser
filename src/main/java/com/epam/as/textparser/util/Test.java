@@ -11,6 +11,6 @@ public class Test {
                 "Donec at122145 h ☺☻";
 
         //Text wrd = Parser.parseText(text);
-       // System.out.println("wrd = " + wrd);
+        // System.out.println("wrd = " + wrd);
     }
 }
