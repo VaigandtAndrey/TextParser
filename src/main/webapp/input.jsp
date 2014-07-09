@@ -22,12 +22,14 @@
             <input class="button" type="submit" value="<fmt:message key="input.button.parse"/>">
         </form>
     </div>
+    <form action="${pageContext.request.contextPath}/parser" method="post">
     <div id="right">
         <input type="radio" name="action" value="parse" > parse!<br>
-        <input type="radio" name="action" value="TestAction"checked> TestAction<br>
+        <input type="radio" name="action" value="TestAction" checked> TestAction<br>
         <input type="radio" name="action" value="action1"> action1<br>
         <input type="radio" name="action" value="action2"> action2<br>
     </div>
+    </form>
     </body>
     </html>
 </fmt:bundle>

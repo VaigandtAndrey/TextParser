@@ -12,5 +12,6 @@ public class Test {
 
         //Text wrd = Parser.parseText(text);
         // System.out.println("wrd = " + wrd);
+
     }
 }
