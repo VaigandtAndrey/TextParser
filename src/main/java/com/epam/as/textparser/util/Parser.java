@@ -10,6 +10,14 @@ public class Parser {
     public static Text parseText(String sourceText) {
         return null;
     }
+
+    public static String[] test(String reqText) {
+        RegExPatternManager pm = new RegExPatternManager("regex.properties");
+
+        String[] lines = reqText.split(pm.getPattern("sentence"));
+
+        return lines;
+    }
 /*
     public static Text parseText(String submittedText) {
         String textStr = clean(submittedText);

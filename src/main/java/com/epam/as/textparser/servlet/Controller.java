@@ -15,7 +15,6 @@ public class Controller extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // super.service(req, resp);
 
-
         String actionName = request.getParameter("action");
         Action action = ActionFactory.getAction(actionName);
         String result = action.execute(request);
