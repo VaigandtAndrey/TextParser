@@ -7,21 +7,26 @@ import org.slf4j.LoggerFactory;
 public class Parser {
     private final static Logger log = LoggerFactory.getLogger(Parser.class);
 
-    public static Text parseText(String sourceText) {
-        return null;
-    }
-
-    public static String test(String submittedText) {
+    public static String[] test(String submittedText) {
         RegExPatternManager pm = new RegExPatternManager("regex.properties");
         String textStr = clean(submittedText);
-        String[] lines = textStr.split("[.!?]+");
-        System.out.println(pm.getPattern("sentence"));
-        return lines.length+"";
+        String[] lines = textStr.split(pm.getPattern("sentence"));
+        return lines;
     }
+
     public static String clean(String textStr) {
-        textStr = textStr.replaceAll("<|>|\\t|\\s+", " ");
+        RegExPatternManager pm = new RegExPatternManager("regex.properties");
+        textStr = textStr.replaceAll(pm.getPattern("multiply.spaces"), " ");
+        textStr = textStr.replaceAll("<", "&lt;").replaceAll(">","&gt;");
         return textStr;
     }
+
+    public static Text parseText(String sourceText) {
+        Text text = new Text();
+
+        return text;
+    }
+
 
 /*
     public static Text parseText(String submittedText) {
