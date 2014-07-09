@@ -1,7 +1,5 @@
 package com.epam.as.textparser.util;
 
-import com.sun.org.apache.xerces.internal.impl.PropertyManager;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -11,7 +9,7 @@ public class RegExPatternManager {
 
     public RegExPatternManager(String filename) {
         // "regex.properties"
-        InputStream stream = PropertyManager.class.getClassLoader().getResourceAsStream(filename);
+        InputStream stream = RegExPatternManager.class.getClassLoader().getResourceAsStream(filename);
         try {
             PROPERTIES.load(stream);
         } catch (IOException e) {

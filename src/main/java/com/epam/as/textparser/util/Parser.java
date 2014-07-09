@@ -11,13 +11,18 @@ public class Parser {
         return null;
     }
 
-    public static String test(String reqText) {
+    public static String test(String submittedText) {
         RegExPatternManager pm = new RegExPatternManager("regex.properties");
-
-        String[] lines = reqText.split(pm.getPattern("sentence"));
-
-        return lines[0];
+        String textStr = clean(submittedText);
+        String[] lines = textStr.split("[.!?]+");
+        System.out.println(pm.getPattern("sentence"));
+        return lines.length+"";
     }
+    public static String clean(String textStr) {
+        textStr = textStr.replaceAll("<|>|\\t|\\s+", " ");
+        return textStr;
+    }
+
 /*
     public static Text parseText(String submittedText) {
         String textStr = clean(submittedText);
@@ -95,10 +100,7 @@ public class Parser {
         return symbols;
     }
 
-    public static String clean(String textStr) {
-        textStr = textStr.replaceAll("<|>|\\t|\\s+", " ");
-        return textStr;
-    }
+
 
     public static String safe(String textStr) {
         textStr = textStr.replaceAll("<|>", " ");
