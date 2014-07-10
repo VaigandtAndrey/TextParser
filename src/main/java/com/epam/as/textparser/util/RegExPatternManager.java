@@ -8,7 +8,7 @@ public class RegExPatternManager {
     private static final Properties PROPERTIES = new Properties();
 
     public RegExPatternManager(String filename) {
-        // "regex.properties"
+
         InputStream stream = RegExPatternManager.class.getClassLoader().getResourceAsStream(filename);
         try {
             PROPERTIES.load(stream);

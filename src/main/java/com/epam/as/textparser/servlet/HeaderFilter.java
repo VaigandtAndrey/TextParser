@@ -11,6 +11,7 @@ public class HeaderFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws ServletException, IOException {
         HttpServletResponse response = (HttpServletResponse) res;
         response.addHeader("author", "alexey.slepenkov@gmail.com");
+        response.addHeader("project", "WEB-TextParser-Task-2");
         req.setCharacterEncoding("UTF-8");
         chain.doFilter(req, response);
     }
