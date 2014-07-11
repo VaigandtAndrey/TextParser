@@ -2,7 +2,7 @@ package com.epam.as.textparser.entity;
 
 import java.util.List;
 
-public class Sentence extends AbstractCompoundText<Word> {
+public class Sentence extends AbstractCompoundText<Word> implements TextPart, ParagraphPart {
     public Sentence(List<Word> components) {
         super(components);
     }
@@ -15,5 +15,15 @@ public class Sentence extends AbstractCompoundText<Word> {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public void add(TextPart element) {
+
+    }
+
+    @Override
+    public String toBuildString() {
+        return null;
     }
 }

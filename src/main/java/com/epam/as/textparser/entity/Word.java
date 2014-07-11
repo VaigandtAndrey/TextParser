@@ -2,7 +2,7 @@ package com.epam.as.textparser.entity;
 
 import java.util.List;
 
-public class Word extends AbstractCompoundText<Letter> {
+public class Word extends AbstractCompoundText<Letter> implements SentencePart{
 
     public Word(List<Letter> components) {
         super(components);

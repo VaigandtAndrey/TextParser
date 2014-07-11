@@ -2,7 +2,7 @@ package com.epam.as.textparser.entity;
 
 import java.util.List;
 
-public class AbstractCompoundText<T> implements CompoundText {
+public abstract class AbstractCompoundText<T> implements CompoundText {
     private List<T> components;
 
     public AbstractCompoundText(List<T> components) {
