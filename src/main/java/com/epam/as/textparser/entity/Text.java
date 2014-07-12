@@ -12,7 +12,7 @@ public class Text extends AbstractCompoundText<Paragraph>{
     }
 
     @Override
-    public TextPart getElement(int index) {
+    public Paragraph getElement(int index) {
         return super.getElement(index);
     }
 
