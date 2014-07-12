@@ -2,14 +2,23 @@ package com.epam.as.textparser.entity;
 
 public class Symbol implements WordPart {
 
-    private final char value;
+    private final Character value;
 
-    public Symbol(char value) {
+    public Symbol(Character value) {
         this.value = value;
+    }
+
+    public Symbol() {
+        this.value = '\0';
     }
 
     @Override
     public String toSourceString() {
-        return null;
+        return toString();
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
 }

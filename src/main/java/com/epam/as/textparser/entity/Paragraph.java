@@ -8,9 +8,7 @@ public class Paragraph extends AbstractCompoundText<Sentence> implements TextPar
         super(components);
     }
 
-    @Override
-    public boolean add(Sentence element) {
-        return false;
+    public Paragraph() {
+        super();
     }
-
 }

@@ -8,7 +8,7 @@ public abstract class AbstractCompoundText<T extends TextPart> implements Compou
 
     public AbstractCompoundText(List<T> components) {
         this.components = components;
-    }//todo? new ArrayList<>()
+    }
 
     public AbstractCompoundText() {
         this.components = new ArrayList<>();

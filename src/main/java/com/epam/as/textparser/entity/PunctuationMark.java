@@ -1,12 +1,7 @@
 package com.epam.as.textparser.entity;
 
 public class PunctuationMark extends Symbol {
-    public PunctuationMark(char value) {
+    public PunctuationMark(Character value) {
         super(value);
-    }
-
-    @Override
-    public String toSourceString() {
-        return null;
     }
 }

@@ -1,10 +1,15 @@
 package com.epam.as.textparser.entity;
 
-public class Number implements SentencePart {
-    double value;
+public class Number<T extends java.lang.Number> implements SentencePart {
+
+    private T value;
+
+    public Number(T val) {
+        this.value = val;
+    }
 
     @Override
     public String toSourceString() {
-        return null;
+        return String.valueOf(value);
     }
 }
