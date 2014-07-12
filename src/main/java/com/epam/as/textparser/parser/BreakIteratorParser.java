@@ -1,9 +1,6 @@
 package com.epam.as.textparser.parser;
 
-import com.epam.as.textparser.entity.Paragraph;
-import com.epam.as.textparser.entity.Sentence;
-import com.epam.as.textparser.entity.Text;
-import com.epam.as.textparser.entity.Word;
+import com.epam.as.textparser.entity.*;
 
 public class BreakIteratorParser implements Parser {
     @Override
@@ -27,7 +24,7 @@ public class BreakIteratorParser implements Parser {
     }
 
     @Override
-    public Character parseCharacter(String str) {
+    public Symbol parseSymbol(String str) {
         return null;
     }
 }

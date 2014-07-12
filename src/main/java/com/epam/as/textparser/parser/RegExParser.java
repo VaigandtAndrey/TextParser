@@ -1,9 +1,6 @@
 package com.epam.as.textparser.parser;
 
-import com.epam.as.textparser.entity.Paragraph;
-import com.epam.as.textparser.entity.Sentence;
-import com.epam.as.textparser.entity.Text;
-import com.epam.as.textparser.entity.Word;
+import com.epam.as.textparser.entity.*;
 import com.epam.as.textparser.util.RegExPatternManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +24,6 @@ public class RegExParser implements Parser{
 
     public Text parseText(String sourceText) {
         Text text = new Text();
-
         return text;
     }
 
@@ -47,7 +43,17 @@ public class RegExParser implements Parser{
     }
 
     @Override
-    public Character parseCharacter(String str) {
+    public Symbol parseSymbol(String str) {
+        return null;
+    }
+
+    @Override
+    public PunctuationMark parsePunctuationMark(String str) {
+        return null;
+    }
+
+    @Override
+    public WhiteSpace parseWhiteSpace(String str) {
         return null;
     }
 }

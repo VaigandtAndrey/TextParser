@@ -2,24 +2,33 @@ package com.epam.as.textparser.parser;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
-public class Indexer implements Iterable {
-    HashMap<Integer,String> breakPoints;
+public class Indexer implements Iterable<String> {
+    HashMap<Integer, String> breakPoints;
 
-    @Override
-    public Iterator iterator() {
-        return null;
+    private class Itr implements Iterator<String> {
+        private int size = 0;
+        private int index = 0;
+        private Indexer indexer;
+
+        private Itr(Indexer ind) {
+            indexer = ind;
+            size = indexer.breakPoints.size();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return (index < size);
+        }
+
+        @Override
+        public String next() {
+            return indexer.breakPoints.get(index++);
+        }
     }
 
     @Override
-    public void forEach(Consumer action) {
-
-    }
-
-    @Override
-    public Spliterator spliterator() {
-        return null;
+    public Iterator<String> iterator() {
+        return new Itr(this);
     }
 }
