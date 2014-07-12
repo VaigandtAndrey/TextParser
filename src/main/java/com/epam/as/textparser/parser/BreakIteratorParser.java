@@ -27,4 +27,14 @@ public class BreakIteratorParser implements Parser {
     public Symbol parseSymbol(String str) {
         return null;
     }
+
+    @Override
+    public PunctuationMark parsePunctuationMark(String str) {
+        return null;
+    }
+
+    @Override
+    public WhiteSpace parseWhiteSpace(String str) {
+        return null;
+    }
 }

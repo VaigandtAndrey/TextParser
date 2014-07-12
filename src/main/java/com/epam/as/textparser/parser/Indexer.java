@@ -1,34 +1,56 @@
 package com.epam.as.textparser.parser;
 
-import java.util.HashMap;
-import java.util.Iterator;
+import com.epam.as.textparser.entity.TextPart;
+import com.epam.as.textparser.util.RegExPatternManager;
 
-public class Indexer implements Iterable<String> {
-    HashMap<Integer, String> breakPoints;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-    private class Itr implements Iterator<String> {
-        private int size = 0;
-        private int index = 0;
-        private Indexer indexer;
+public class Indexer {
+    List<Integer> breakPoints;
 
-        private Itr(Indexer ind) {
-            indexer = ind;
-            size = indexer.breakPoints.size();
-        }
-
-        @Override
-        public boolean hasNext() {
-            return (index < size);
-        }
-
-        @Override
-        public String next() {
-            return indexer.breakPoints.get(index++);
-        }
+    public Indexer() {
+        breakPoints = new ArrayList<>();
     }
 
-    @Override
-    public Iterator<String> iterator() {
-        return new Itr(this);
+
+    public <T extends TextPart> List<Integer> index(Class<T> clazz, String sourceStr) {
+
+        try {
+            T operation = clazz.newInstance();
+            RegExPatternManager pm = new RegExPatternManager("regex.properties");
+            String pattern = "";
+
+            if (clazz.getSimpleName().equals("Paragraph")) {
+                pattern = pm.getPattern("paragraph.divide");
+            }
+            if (clazz.getSimpleName().equals("Sentence")) {
+                pattern = pm.getPattern("sentence.divide");
+            }
+            if (clazz.getSimpleName().equals("Word")) {
+                pattern = pm.getPattern("word.divide");
+            }
+            if (clazz.getSimpleName().equals("Symbol")) {
+                pattern = pm.getPattern("symbol.divide");
+            }
+
+            Pattern p = Pattern.compile(pattern);
+            Matcher m = p.matcher(sourceStr);
+            while (m.find()) {
+                System.out.println("" + clazz.getSimpleName() + "  "+m.end());
+                breakPoints.add(m.end());
+            }
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return breakPoints;
     }
+
+
 }
