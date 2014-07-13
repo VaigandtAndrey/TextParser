@@ -13,8 +13,8 @@ public class Test {
         //         "\n" +
         //         "Donec at122145 h ☺☻";
 //
-        // String text = "Par1. Sentence1! Sentence2?\nPar2. Sentence1! Sentence2? \nPar3. Sentence1! Sentence2? \n Par4. Sentence1! Sentence2?\n ";
-        String text = " Lorem ipsum.\n Consectetur dsd. SSD!\n Integer et. Ante mollis dui. tempus luctus.";
+       // String text = "Par1. Sentence1! Sentence2?\nPar2. Sentence1! Sentence2? \nPar3. Sentence1! Sentence2? \n Par4. Sentence1! Sentence2?\n ";
+        String text = "Lorem ipsum.\n Consec-tetur 123.6 ds .37 d. SSD!\nInteger 100% et. Ante mollis dui. tempus luctus.";
         //Text wrd = Parser.parseText(text);
         // System.out.println("wrd = " + WRD);
 

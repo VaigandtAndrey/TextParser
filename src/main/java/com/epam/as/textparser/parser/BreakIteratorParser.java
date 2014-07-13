@@ -37,4 +37,5 @@ public class BreakIteratorParser implements Parser {
     public WhiteSpace parseWhiteSpace(String str) {
         return null;
     }
+
 }

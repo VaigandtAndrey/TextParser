@@ -10,4 +10,5 @@ public interface Parser {
     public Symbol parseSymbol(String str);
     public PunctuationMark parsePunctuationMark(String str);
     public WhiteSpace parseWhiteSpace(String str);
+
 }

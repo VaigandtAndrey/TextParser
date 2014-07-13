@@ -5,6 +5,9 @@ import com.epam.as.textparser.util.RegExPatternManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegExParser implements Parser {
     private final static Logger log = LoggerFactory.getLogger(Parser.class);
 
@@ -20,6 +23,7 @@ public class RegExParser implements Parser {
     }
 
     public Text parseText(String sourceText) {
+
         Text text = new Text();
         Indexer indxr = new Indexer();
         Paragraph parsedPar = new Paragraph();
@@ -56,7 +60,7 @@ public class RegExParser implements Parser {
     }
 
     @Override
-    public Sentence parseSentence(String str) {
+    public Sentence parseSentence(String sentence) {
 
         Sentence sent = new Sentence();
         Indexer indxr = new Indexer();
@@ -64,22 +68,35 @@ public class RegExParser implements Parser {
         int startPoint = 0;
         int endPoint = 0;
 
-        for (Integer breakPoint : indxr.index(Word.class, str)) {
+        for (Integer breakPoint : indxr.index(Word.class, sentence)) {
             endPoint = breakPoint;
-            parsedWord = parseWord(str.substring(startPoint, endPoint));
+            parsedWord = parseWord(sentence.substring(startPoint, endPoint));
             sent.add(parsedWord);
             startPoint = endPoint;
         }
+
+        /// Indexer indxr1 = new Indexer();
+        /// WhiteSpace parsedWs = new WhiteSpace();
+        /// startPoint = 0;
+        /// endPoint = 0;
+        /// for (Integer breakPoint : indxr1.index(WhiteSpace.class, sentence)) {
+        ///     endPoint = breakPoint;
+        ///     parsedWs = parseWhiteSpace(sentence.substring(startPoint, endPoint));
+        ///     sent.add(parsedWs);
+        ///     startPoint = endPoint;
+        /// }
+
 
         return sent;
     }
 
     @Override
     public Word parseWord(String str) {
+
         Word wrd = new Word();
         Indexer indxr = new Indexer();
         Symbol parsedSymb = new Symbol();
-        int startPoint = 1;
+        int startPoint = 0;
         int endPoint = 0;
 
         for (Integer breakPoint : indxr.index(Symbol.class, str)) {
@@ -93,10 +110,26 @@ public class RegExParser implements Parser {
     }
 
     @Override
-    public Symbol parseSymbol(String str) {
-        Indexer indxr = new Indexer();
-        Symbol parsedSymb = new Symbol(str);
-        return parsedSymb;
+    public Symbol parseSymbol(String str) { // !letter or puncto or whitespace!
+        //define type of SYMBOL and return it
+
+        Symbol symb = new Symbol();
+        RegExPatternManager pm = new RegExPatternManager("regex.properties");
+        Pattern whiteSpacePattern = Pattern.compile(pm.getPattern("whitespace"), Pattern.UNICODE_CHARACTER_CLASS);
+        Pattern letterPattern = Pattern.compile(pm.getPattern("letter"), Pattern.UNICODE_CHARACTER_CLASS);
+        Pattern punctuationPattern = Pattern.compile(pm.getPattern("punctuation"), Pattern.UNICODE_CHARACTER_CLASS);
+        Matcher whiteSpaceMatcher = whiteSpacePattern.matcher(str);
+        if (whiteSpaceMatcher.find()){
+            symb = new WhiteSpace();
+            return symb;
+        }
+
+        Character charctr = '\0';
+        for (char o : str.toCharArray()) {
+            charctr = o;
+        }
+        symb = new Symbol(charctr);
+        return symb;
     }
 
     @Override
@@ -106,6 +139,16 @@ public class RegExParser implements Parser {
 
     @Override
     public WhiteSpace parseWhiteSpace(String str) {
-        return null;
+
+        ///Indexer indxr = new Indexer();
+        ///WhiteSpace parsedWs = new WhiteSpace();
+        ///int startPoint = 0;
+        ///int endPoint = 0;
+        ///for (Integer breakPoint : indxr.index(WhiteSpace.class, str)) {
+        ///    endPoint = breakPoint;
+        ///    parsedWs = parseWhiteSpace(str.substring(startPoint, endPoint));
+        ///    startPoint = endPoint;
+        ///}
+        return new WhiteSpace();
     }
 }

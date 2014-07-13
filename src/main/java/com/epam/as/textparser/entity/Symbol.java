@@ -2,7 +2,7 @@ package com.epam.as.textparser.entity;
 
 public class Symbol implements WordPart {
 
-    private Character value;
+    private final Character value;
 
     public Symbol(Character value) {
         this.value = value;
@@ -10,12 +10,6 @@ public class Symbol implements WordPart {
 
     public Symbol() {
         this.value = '\0';
-    }
-
-    public Symbol(String str) {
-        for (char o : str.toCharArray() ) {
-            this.value = Character.valueOf(o);
-        }
     }
 
     @Override

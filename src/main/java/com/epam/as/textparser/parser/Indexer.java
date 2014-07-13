@@ -27,17 +27,20 @@ public class Indexer {
             String pattern = "";
 
             if (clazz.getSimpleName().equals("Paragraph")) {
-                pattern = pm.getPattern("paragraph.divide");
+                pattern = pm.getPattern("paragraph");
             }
             if (clazz.getSimpleName().equals("Sentence")) {
-                pattern = pm.getPattern("sentence.divide");
+                pattern = pm.getPattern("sentence");
             }
             if (clazz.getSimpleName().equals("Word")) {
-                pattern = pm.getPattern("word.divide");
+                pattern = pm.getPattern("word");
             }
             if (clazz.getSimpleName().equals("Symbol")) {
-                pattern = pm.getPattern("symbol.divide");
+                pattern = pm.getPattern("symbol");
             }
+           // if (clazz.getSimpleName().equals("WhiteSpace")) {
+           //     pattern = pm.getPattern("whitespace");
+           // }
 
             Pattern p = Pattern.compile(pattern, Pattern.UNICODE_CHARACTER_CLASS);
             Matcher m = p.matcher(sourceStr);
