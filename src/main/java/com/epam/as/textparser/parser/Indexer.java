@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Indexer {
-    List<Integer> breakPoints;
+    private List<Integer> breakPoints;
 
     public Indexer() {
         breakPoints = new ArrayList<>();
@@ -36,10 +36,10 @@ public class Indexer {
                 pattern = pm.getPattern("symbol.divide");
             }
 
-            Pattern p = Pattern.compile(pattern);
+            Pattern p = Pattern.compile(pattern, Pattern.UNICODE_CHARACTER_CLASS | Pattern.DOTALL);
             Matcher m = p.matcher(sourceStr);
             while (m.find()) {
-                System.out.println("" + clazz.getSimpleName() + "  "+m.end());
+                System.out.println(clazz.getSimpleName() + "  " + m.end());
                 breakPoints.add(m.end());
             }
 

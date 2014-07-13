@@ -5,31 +5,55 @@ import com.epam.as.textparser.util.RegExPatternManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RegExParser implements Parser{
+public class RegExParser implements Parser {
     private final static Logger log = LoggerFactory.getLogger(Parser.class);
 
-//    public  String[] test(String submittedText) {
-//        RegExPatternManager pm = new RegExPatternManager("regex.properties");
-//        String textStr = clean(submittedText);
-//        String[] lines = textStr.split(pm.getPattern("sentence"));
-//        return lines;
-//    }
+    public RegExParser() {
 
-    public  String clean(String textStr) {
+    }
+
+    public String clean(String textStr) {
         RegExPatternManager pm = new RegExPatternManager("regex.properties");
         textStr = textStr.replaceAll(pm.getPattern("multiply.spaces"), " ");
-        textStr = textStr.replaceAll("<", "&lt;").replaceAll(">","&gt;");
+        textStr = textStr.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
         return textStr;
     }
 
     public Text parseText(String sourceText) {
         Text text = new Text();
+        Indexer indxr = new Indexer();
+        Paragraph parsedPar = new Paragraph();
+        int startPoint = 0;
+        int endPoint = 0;
+
+        for (Integer breakPoint : indxr.index(Paragraph.class, sourceText)) {
+            endPoint = breakPoint;
+            parsedPar = parseParagraph(sourceText.substring(startPoint, endPoint));
+            text.add(parsedPar);
+            startPoint = endPoint;
+        }
+
         return text;
     }
 
     @Override
     public Paragraph parseParagraph(String str) {
-        return null;
+
+        Paragraph par = new Paragraph();
+        Indexer indxr = new Indexer();
+        Sentence parsedSent = new Sentence();
+        int startPoint = 0;
+        int endPoint = 0;
+
+        for (Integer breakPoint : indxr.index(Sentence.class, str)) {
+            endPoint = breakPoint;
+            parsedSent = parseSentence(str.substring(startPoint, endPoint));
+            par.add(parsedSent);
+            startPoint = endPoint;
+        }
+
+        return par;
+
     }
 
     @Override
