@@ -21,10 +21,9 @@
             <textarea rows="20" name="text" autofocus></textarea>
             <input class="button" type="submit" value="<fmt:message key="input.button.parse"/>">
             <div id="right">
-                <input type="radio" name="action" value="parse" > parse!<br>
-                <input type="radio" name="action" value="TestAction" checked> TestAction<br>
-                <input type="radio" name="action" value="action1"> action1<br>
-                <input type="radio" name="action" value="action2"> action2<br>
+                <input type="radio" name="action" value="parse" checked><fmt:message key="input.radio.parse"/><br>
+                <input type="radio" name="action" value="action1"><fmt:message key="input.radio.sorybysentencelength"/><br>
+
             </div>
         </form>
     <%--</div>--%>

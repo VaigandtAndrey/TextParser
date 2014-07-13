@@ -18,6 +18,19 @@
     <h2><fmt:message key="output.text.source"/></h2>
         ${text.toSourceString()}
 
+        <%--<h2><fmt:message key="output.text.sentence"/></h2>--%>
+        <c:forEach var="sent" items="${result}" varStatus="loop">
+        <br>${loop.index+1}. ${sent}<br>
+        </c:forEach>
+        <%--<h2><fmt:message key="output.text.word"/></h2>--%>
+        <%--<c:forEach var="sent" items="${word}" varStatus="loop">--%>
+        <%--<br> <a>${loop.index}. ${sent}</a><br>--%>
+        <%--</c:forEach>--%>
+        <%--<h2><fmt:message key="output.text.letter"/></h2>--%>
+        <%--<c:forEach var="sent" items="${letter}" varStatus="loop">--%>
+        <%--<br> <a>${loop.index}. ${sent}</a><br>--%>
+        <%--</c:forEach>--%>
+
     </body>
     </html>
 </fmt:bundle>

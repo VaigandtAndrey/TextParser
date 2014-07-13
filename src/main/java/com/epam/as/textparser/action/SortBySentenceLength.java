@@ -15,17 +15,6 @@ public class SortBySentenceLength implements Action {
     @Override
     public String execute(HttpServletRequest request) {
 
-        // public Paragraph sortSentencesByWordsCount(Text text) {
-        //     Paragraph result = new Paragraph();
-        //     for (Paragraph paragraph : text.getParagraphs()) {
-        //         for (Sentence sentence : paragraph.getSentences()) {
-        //             result.add(sentence);
-        //         }
-        //     }
-        //     Collections.sort(result.getSentences(), (a, b) -> a.getSentenceParts().size() == b.getSentenceParts().size()
-        //             ? 0 : a.getSentenceParts().size() > b.getSentenceParts().size() ? 1 : -1);
-        //     return result;
-        // }
         String reqText = request.getParameter("text");
         RegExParser parser = new RegExParser();
         Text txt = parser.parseText(parser.clean(reqText));
@@ -37,6 +26,7 @@ public class SortBySentenceLength implements Action {
         }
         Collections.sort(result, (o1, o2) -> o1.getAllElements().size() > o2.getAllElements().size()?1:-1                  );
         request.setAttribute("result", result);
+        request.setAttribute("text", txt);
         return "/WEB-INF/output.jsp";
     }
 
