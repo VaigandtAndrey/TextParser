@@ -79,7 +79,7 @@ public class RegExParser implements Parser {
         Word wrd = new Word();
         Indexer indxr = new Indexer();
         Symbol parsedSymb = new Symbol();
-        int startPoint = 0;
+        int startPoint = 1;
         int endPoint = 0;
 
         for (Integer breakPoint : indxr.index(Symbol.class, str)) {
@@ -94,7 +94,9 @@ public class RegExParser implements Parser {
 
     @Override
     public Symbol parseSymbol(String str) {
-        return null;
+        Indexer indxr = new Indexer();
+        Symbol parsedSymb = new Symbol(str);
+        return parsedSymb;
     }
 
     @Override

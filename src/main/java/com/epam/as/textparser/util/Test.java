@@ -14,7 +14,7 @@ public class Test {
         //         "Donec at122145 h ☺☻";
 //
         // String text = "Par1. Sentence1! Sentence2?\nPar2. Sentence1! Sentence2? \nPar3. Sentence1! Sentence2? \n Par4. Sentence1! Sentence2?\n ";
-        String text = "Lorem ipsum.\n Consectetur dsd. SSD!\n Integer et. Ante mollis dui. tempus luctus.";
+        String text = " Lorem ipsum.\n Consectetur dsd. SSD!\n Integer et. Ante mollis dui. tempus luctus.";
         //Text wrd = Parser.parseText(text);
         // System.out.println("wrd = " + WRD);
 

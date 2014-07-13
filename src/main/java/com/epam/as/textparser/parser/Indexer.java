@@ -39,11 +39,10 @@ public class Indexer {
                 pattern = pm.getPattern("symbol.divide");
             }
 
-            Pattern p = Pattern.compile(pattern, Pattern.UNICODE_CHARACTER_CLASS | Pattern.DOTALL);
+            Pattern p = Pattern.compile(pattern, Pattern.UNICODE_CHARACTER_CLASS);
             Matcher m = p.matcher(sourceStr);
             while (m.find()) {
-                log.info(clazz.getSimpleName() + " Indexed! Start: " + m.start()+" End: " + m.end());
-               // System.out.println();
+                log.info(clazz.getSimpleName() + " Indexed! Start: " + m.start() + " End: " + m.end());
                 breakPoints.add(m.end());
             }
 
