@@ -15,6 +15,7 @@ public class Test {
 //
        // String text = "Par1. Sentence1! Sentence2?\nPar2. Sentence1! Sentence2? \nPar3. Sentence1! Sentence2? \n Par4. Sentence1! Sentence2?\n ";
         String text = "Lorem ipsum.\n Consec-tetur 123.6 ds .37 d. SSD!\nInteger 100% et. Ante mollis dui. tempus luctus.";
+       // String text = "L     O...";
         //Text wrd = Parser.parseText(text);
         // System.out.println("wrd = " + WRD);
 
@@ -37,11 +38,9 @@ public class Test {
 
         RegExParser parser = new RegExParser();
         Text txt = parser.parseText(text);
-        System.out.println(txt.toString());
-        //txt.toSourceString();
+       // System.out.println(txt.toString());
+        System.out.println( txt.toSourceString());
 
 
-        // indx.index(Word.class, text);
-        //  indx.index(Symbol.class, text);
     }
 }

@@ -8,7 +8,7 @@
         <title><fmt:message key="title"/></title>
         <link rel="stylesheet" href="style/style.css" type="text/css">
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <%--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">--%>
     </head>
     <body>
     <script src="http://code.jquery.com/jquery-latest.js"></script>

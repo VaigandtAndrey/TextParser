@@ -75,18 +75,6 @@ public class RegExParser implements Parser {
             startPoint = endPoint;
         }
 
-        /// Indexer indxr1 = new Indexer();
-        /// WhiteSpace parsedWs = new WhiteSpace();
-        /// startPoint = 0;
-        /// endPoint = 0;
-        /// for (Integer breakPoint : indxr1.index(WhiteSpace.class, sentence)) {
-        ///     endPoint = breakPoint;
-        ///     parsedWs = parseWhiteSpace(sentence.substring(startPoint, endPoint));
-        ///     sent.add(parsedWs);
-        ///     startPoint = endPoint;
-        /// }
-
-
         return sent;
     }
 
@@ -105,7 +93,6 @@ public class RegExParser implements Parser {
             wrd.add(parsedSymb);
             startPoint = endPoint;
         }
-
         return wrd;
     }
 
@@ -116,11 +103,18 @@ public class RegExParser implements Parser {
         Symbol symb = new Symbol();
         RegExPatternManager pm = new RegExPatternManager("regex.properties");
         Pattern whiteSpacePattern = Pattern.compile(pm.getPattern("whitespace"), Pattern.UNICODE_CHARACTER_CLASS);
-        Pattern letterPattern = Pattern.compile(pm.getPattern("letter"), Pattern.UNICODE_CHARACTER_CLASS);
         Pattern punctuationPattern = Pattern.compile(pm.getPattern("punctuation"), Pattern.UNICODE_CHARACTER_CLASS);
+
         Matcher whiteSpaceMatcher = whiteSpacePattern.matcher(str);
-        if (whiteSpaceMatcher.find()){
+        Matcher punctuationMatcher = punctuationPattern.matcher(str);
+
+        if (whiteSpaceMatcher.find()) {
             symb = new WhiteSpace();
+            return symb;
+        }
+
+        if (punctuationMatcher.find()) {
+            symb = new PunctuationMark(str.toCharArray()[0]);
             return symb;
         }
 
@@ -128,8 +122,8 @@ public class RegExParser implements Parser {
         for (char o : str.toCharArray()) {
             charctr = o;
         }
-        symb = new Symbol(charctr);
-        return symb;
+
+        return new Symbol(charctr);
     }
 
     @Override
@@ -140,15 +134,7 @@ public class RegExParser implements Parser {
     @Override
     public WhiteSpace parseWhiteSpace(String str) {
 
-        ///Indexer indxr = new Indexer();
-        ///WhiteSpace parsedWs = new WhiteSpace();
-        ///int startPoint = 0;
-        ///int endPoint = 0;
-        ///for (Integer breakPoint : indxr.index(WhiteSpace.class, str)) {
-        ///    endPoint = breakPoint;
-        ///    parsedWs = parseWhiteSpace(str.substring(startPoint, endPoint));
-        ///    startPoint = endPoint;
-        ///}
+
         return new WhiteSpace();
     }
 }

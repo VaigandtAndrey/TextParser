@@ -10,9 +10,9 @@ public class ParseAction implements Action {
     public String execute(HttpServletRequest request) {
         String reqText = request.getParameter("text");
         // Text text = Parser.parseText(reqText);
-        // request.setAttribute("text", text);
+       //  request.setAttribute("text", text);
         RegExParser parser = new RegExParser();
-        Text txt = parser.parseText(reqText);
+        Text txt = parser.parseText(parser.clean(reqText));
         return "/WEB-INF/output.jsp";
     }
 }
