@@ -5,33 +5,18 @@
     <html>
     <head lang="en">
         <title><fmt:message key="title"/></title>
-            <%--<link rel="stylesheet" href="style/style.css" type="text/css">--%>
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="style/style.css" type="text/css">
+            <%--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">--%>
     </head>
     <body>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
+        <%--<script src="js/bootstrap.min.js"></script>--%>
     <h1><fmt:message key="head"/></h1>
 
     <h2><fmt:message key="output.text.submitted"/></h2>
-    <a>${text}</a>
-
-    <h2><fmt:message key="output.text.paragraph"/>:</h2>
-    <c:forEach var="sent" items="${paragraph}" varStatus="loop">
-        <br> <a>${loop.index}. ${sent}</a><br>
-    </c:forEach>
-    <h2><fmt:message key="output.text.sentence"/></h2>
-    <c:forEach var="sent" items="${sentence}" varStatus="loop">
-        <br> <a>${loop.index}. ${sent}</a><br>
-    </c:forEach>
-    <h2><fmt:message key="output.text.word"/></h2>
-    <c:forEach var="sent" items="${word}" varStatus="loop">
-        <br> <a>${loop.index}. ${sent}</a><br>
-    </c:forEach>
-    <h2><fmt:message key="output.text.letter"/></h2>
-    <c:forEach var="sent" items="${letter}" varStatus="loop">
-        <br> <a>${loop.index}. ${sent}</a><br>
-    </c:forEach>
+        ${text}
+    <h2><fmt:message key="output.text.source"/></h2>
+        ${text.toSourceString()}
 
     </body>
     </html>

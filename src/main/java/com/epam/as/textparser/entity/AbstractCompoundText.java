@@ -24,8 +24,15 @@ public abstract class AbstractCompoundText<T extends TextPart> implements Compou
     }
 
     @Override
+    public List<T> getAllElements() {
+        List<T> result = new ArrayList<>();
+        result.addAll(components);
+        return result;
+    }
+
+    @Override
     public boolean add(T element) {
-       return (this.components.add(element));
+        return (this.components.add(element));
     }
 
     @Override

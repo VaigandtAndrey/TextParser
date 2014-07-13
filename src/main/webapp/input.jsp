@@ -16,7 +16,7 @@
     <div id="top"><h1><fmt:message key="head"/></h1></div>
     <p></p>
 
-    <div id="left">
+    <%--<div id="left">--%>
         <form action="${pageContext.request.contextPath}/parser" method="post">
             <textarea rows="20" name="text" autofocus></textarea>
             <input class="button" type="submit" value="<fmt:message key="input.button.parse"/>">
@@ -27,7 +27,7 @@
                 <input type="radio" name="action" value="action2"> action2<br>
             </div>
         </form>
-    </div>
+    <%--</div>--%>
 
     </body>
     </html>

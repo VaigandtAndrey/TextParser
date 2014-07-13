@@ -11,8 +11,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Indexer {
-    private List<Integer> breakPoints;
     private final static Logger log = LoggerFactory.getLogger(Indexer.class);
+    private List<Integer> breakPoints;
 
     public Indexer() {
         breakPoints = new ArrayList<>();
@@ -38,9 +38,6 @@ public class Indexer {
             if (clazz.getSimpleName().equals("Symbol")) {
                 pattern = pm.getPattern("symbol");
             }
-           // if (clazz.getSimpleName().equals("WhiteSpace")) {
-           //     pattern = pm.getPattern("whitespace");
-           // }
 
             Pattern p = Pattern.compile(pattern, Pattern.UNICODE_CHARACTER_CLASS);
             Matcher m = p.matcher(sourceStr);
@@ -57,6 +54,4 @@ public class Indexer {
 
         return breakPoints;
     }
-
-
 }

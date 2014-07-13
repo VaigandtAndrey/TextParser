@@ -9,6 +9,7 @@ public class ActionFactory {
 
     static {
         actions.put("parse", new ParseAction());
+        actions.put("action1", new SortBySentenceLength());
     }
 
     public static Action getAction(String actionName) {

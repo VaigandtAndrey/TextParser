@@ -2,7 +2,7 @@ package com.epam.as.textparser.entity;
 
 import java.util.List;
 
-public class Sentence extends AbstractCompoundText<SentencePart> implements TextPart, ParagraphPart {
+public class Sentence extends AbstractCompoundText<SentencePart> implements TextPart, ParagraphPart, Comparable<Sentence> {
 
     public Sentence(List<SentencePart> components) {
         super(components);
@@ -12,4 +12,8 @@ public class Sentence extends AbstractCompoundText<SentencePart> implements Text
         super();
     }
 
+    @Override
+    public int compareTo(Sentence o) {
+        return 0;
+    }
 }

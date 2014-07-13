@@ -1,6 +1,8 @@
 package com.epam.as.textparser.servlet;
 
-import com.epam.as.textparser.action.*;
+import com.epam.as.textparser.action.Action;
+import com.epam.as.textparser.action.ActionFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
