@@ -2,6 +2,8 @@ package com.epam.as.textparser.parser;
 
 import com.epam.as.textparser.entity.TextPart;
 import com.epam.as.textparser.util.RegExPatternManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.regex.Pattern;
 
 public class Indexer {
     private List<Integer> breakPoints;
+    private final static Logger log = LoggerFactory.getLogger(Indexer.class);
 
     public Indexer() {
         breakPoints = new ArrayList<>();
@@ -39,7 +42,8 @@ public class Indexer {
             Pattern p = Pattern.compile(pattern, Pattern.UNICODE_CHARACTER_CLASS | Pattern.DOTALL);
             Matcher m = p.matcher(sourceStr);
             while (m.find()) {
-                System.out.println(clazz.getSimpleName() + "  " + m.end());
+                log.info(clazz.getSimpleName() + " Indexed! Start: " + m.start()+" End: " + m.end());
+               // System.out.println();
                 breakPoints.add(m.end());
             }
 

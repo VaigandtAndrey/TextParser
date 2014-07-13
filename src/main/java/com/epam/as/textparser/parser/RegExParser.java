@@ -53,17 +53,43 @@ public class RegExParser implements Parser {
         }
 
         return par;
-
     }
 
     @Override
     public Sentence parseSentence(String str) {
-        return null;
+
+        Sentence sent = new Sentence();
+        Indexer indxr = new Indexer();
+        Word parsedWord = new Word();
+        int startPoint = 0;
+        int endPoint = 0;
+
+        for (Integer breakPoint : indxr.index(Word.class, str)) {
+            endPoint = breakPoint;
+            parsedWord = parseWord(str.substring(startPoint, endPoint));
+            sent.add(parsedWord);
+            startPoint = endPoint;
+        }
+
+        return sent;
     }
 
     @Override
     public Word parseWord(String str) {
-        return null;
+        Word wrd = new Word();
+        Indexer indxr = new Indexer();
+        Symbol parsedSymb = new Symbol();
+        int startPoint = 0;
+        int endPoint = 0;
+
+        for (Integer breakPoint : indxr.index(Symbol.class, str)) {
+            endPoint = breakPoint;
+            parsedSymb = parseSymbol(str.substring(startPoint, endPoint));
+            wrd.add(parsedSymb);
+            startPoint = endPoint;
+        }
+
+        return wrd;
     }
 
     @Override
